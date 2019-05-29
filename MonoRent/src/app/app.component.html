@@ -1,0 +1,75 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+<!--  NAVBAR  -->
+<div>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light" *ngIf="invisible">
+          <h2>MONO-RENT</h2>
+
+          <div class="collapse navbar-collapse" id="navbarCollapse8">
+              <div class="navbar-nav">
+                  <a (click)="home()" class="nav-item nav-link">Home <img style="max-width:30px;" src="https://image.flaticon.com/icons/png/512/25/25694.png"></a>
+                  <a (click)="map()" class="nav-item nav-link">Mappa <img style="max-width:30px;" src="https://png.pngtree.com/svg/20170217/5a47dc4f9e.png"></a>
+              </div>
+              <form class="form-inline ml-auto">
+                  Bentornato: <b>{{data.result.username}}</b>&nbsp; &nbsp;<img (click)="reload()" style="max-width:30px;" src="https://cdn3.iconfinder.com/data/icons/social-messaging-productivity-6/128/profile-male-circle2-512.png">&nbsp; Logout
+              </form>
+          </div>
+  </nav>
+</div>
+
+<img *ngIf="img" src="https://wallpaperplay.com/walls/full/d/b/c/89546.jpg" width="100%" height="60%">
+
+
+<!--  FORM PER LOGIN E REGISTRAZIONE -->
+<div class="container" *ngIf="visible">
+  <div class="login-form" *ngIf="a">
+      <h2>Accedi al tuo Account</h2>
+      <form>
+          <div class="text-center">
+              <img src="https://ssl.gstatic.com/images/branding/product/1x/avatar_circle_blue_512dp.png" class="img-circle avatar" alt="Avatar">
+          </div>
+          <div class="form-group">
+              <input #username type="text" class="form-control" placeholder="Username" value="" class="input" class="form-control" name="username" required/>
+              <input #password type="password" class="form-control" placeholder="Password" value="" class="input" class="form-control" name="password" required/>
+          </div>
+          <p class="text-center"><font color="#e60000">{{err}}</font></p>
+          <div class="form-group">
+              <input (click)= "onClick(username.value,password.value)" type="submit" value="Accedi" class="btn btn-primary btn-block"/>
+          </div>
+      </form>
+      <p (click)= "onVedi()" class="text-center"><a href="#">Crea un Account</a></p>
+  </div>
+  <div class="login-form" *ngIf="b">
+      <h2>Crea un Account</h2>
+      <form>
+          <div class="text-center">
+              <img src="https://ssl.gstatic.com/images/branding/product/1x/avatar_circle_blue_512dp.png" class="img-circle avatar" alt="Avatar">
+          </div>
+          <div class="form-group">
+              <input #username2 type="text" class="form-control" placeholder="Username" value="" class="input" class="form-control" maxlength="15" name="username" required/>
+              <input #password2 type="password" class="form-control" placeholder="Password" value="" class="input" class="form-control" name="password" required/>
+          </div>
+          <p class="text-center">{{ok}}</p>
+          <div class="form-group">
+              <input (click)= "onClick2(username2.value,password2.value)"  type="submit" value="Crea" class="btn btn-primary btn-block"/>
+          </div>
+      </form>
+      <p (click)= "onVedi2()" class="text-center"><a href="#">Accedi al tuo Account</a></p>
+  </div>
+</div>
+
+<!--  FORM QR CODE -->
+
+
+<!--  MAPPA  -->
+<app-map *ngIf="mappa"></app-map>
